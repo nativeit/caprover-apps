@@ -1,4 +1,9 @@
-## Repo for CapRover One Click Apps
+## Add-on Repo for CapRover One Click Apps
+
+*See https://github.com/caprover/one-click-apps*
+
+This repository is primarily for apps that are either too esoteric or not ready for production.
+---
 
 ### How to create a one-click app (as of v1.8.0):
 First, have a look at [this simple example](https://github.com/caprover/one-click-apps/blob/master/public/v4/apps/privatebin.yml). Now, read on for more details:
