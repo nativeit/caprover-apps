@@ -7,11 +7,12 @@ services:
         environment:
             #PUID:$$cap_puid
             #PGID:$$cap_pgid
-            TZ:$$cap_tz
+            TZ: $$cap_tz
         caproverExtra:
             containerHttpPort: '8080'
             dockerfileLines:
                 - FROM linuxserver/dillinger:$$cap_dillinger_version
+                - RUN htpasswd -Bbn $$cap_username $$cap_password > /auth/htpasswd
 caproverOneClickApp:
     variables:
         - id: $$cap_dillinger_version
@@ -19,6 +20,12 @@ caproverOneClickApp:
           description: 'Check out their Docker page for the valid tags: https://hub.docker.com/r/dillinger/server/tags'
           defaultValue: '3.39.1'
           validRegex: /^([^\s^\/])+$/
+        - id: '$$cap_username'
+          label: Username
+          defaultValue: user
+        - id: '$$cap_password'
+          label: Password
+          defaultValue: changeme!
         #- id: '$$cap_puid'
         #  label: Dillinger UserID
         #  defaultValue: 1000
